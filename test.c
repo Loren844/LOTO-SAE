@@ -1,5 +1,6 @@
+#include <stdio.h>
 int main()
 {
-    printf("Ceci est un test");
+    printf("TEst");
     return 0;
 }
