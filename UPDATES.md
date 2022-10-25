@@ -1,1 +1,5 @@
-#Signaler les modifications/ajouts majeurs du code  
+# Signaler les modifications/ajouts majeurs :
+- - - - - - - - - - - - - - - - - - - -  
+Format d'écriture :   
+JJ/MM - Prénom - Modification/Ajout  
+- - - - - - - - - - - - - - - - - - - -  
