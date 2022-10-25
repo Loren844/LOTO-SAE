@@ -1,6 +1,6 @@
 #include <stdio.h>
 int main()
 {
-    printf("Ceci est un Test.");
+    printf("Ceci n'est pas un test.");
     return 0;
 }
