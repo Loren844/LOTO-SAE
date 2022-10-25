@@ -1,5 +1,5 @@
-# LOTO-SAE
-Dev d'un jeu de loto pour la SAE 01  
-  
+# LOTO-SAE 
+- - - - - - - - - - - - - - - - - - - -  
 Format d'écriture sur le readme:   
 JJ/MM - Prenom - info  
+- - - - - - - - - - - - - - - - - - - -  
