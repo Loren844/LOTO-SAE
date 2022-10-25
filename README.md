@@ -1,7 +1,4 @@
-# LOTO-SAE 
-- - - - - - - - - - - - - - - - - - - -  
-Documentation générale du projet  
-- - - - - - - - - - - - - - - - - - - -  
+# Documentation générale du Loto  
 ## Fonctionnement  
 ### Tirage au sort :  
 * Tirer un nombre par dizaine  
