@@ -1,5 +1,5 @@
 int main()
 {
-    printf("Turletti est teubé");
+    printf("Ceci est un test");
     return 0;
 }
