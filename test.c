@@ -1,6 +1,6 @@
 #include <stdio.h>
 int main()
 {
-    printf("Zebi");
+    printf("Ceci est un test.");
     return 0;
 }
