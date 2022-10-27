@@ -1,15 +1,11 @@
-# Documentation générale du Loto  
+# Documentation des Menus
 ## V1 : 
-### Tirage au sort :  
-* Tirer un nombre par dizaine  
-* Tirer les 7 autres nombres et les injecter si liste par trop longue dans liste de la colonne  
-* Trier les listes  
-### Création du carton x3 :  
-* Vérifier s’il faut absolument choisir une colonne  
-* Tirer au sort les autres  
-* Injecter les valeurs les plus faibles dans un tableau 9*3 et les supprimer de la liste  
-### Jeu :  
-* Tirer au sort des nombres  
-* Vérifier qu’ils n’ont pas déjà été tirés  
-* Vérifier les cartons et marquer comme lus les nombres tirés  
-* Vérifier si quine, double quine ou carton plein  
+### Menu démarrage :  
+* Choix entre "Nouvelle partie" et "Continuer une partie depuis une save"  
+* Si choix de nouvelle partie, relier a création des cartons.. 
+* Si choix de continuer partie, recréer les cartons à partir d'un fichier txt
+### Menu de partie :  
+* Apparait après chaque fin de tour
+* Choix entre continuer ou quitter la partie
+* Si "quitter la partie" choisi, il faut save les données des cartons et des numéros sortis dans un fichier txt(à faire)
+* Si "continuer la partie" choisi, ne fait rien et passe au tour suivant
