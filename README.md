@@ -1,5 +1,5 @@
 # Documentation générale du Loto  
-## Fonctionnement : 
+## V1 : 
 ### Tirage au sort :  
 * Tirer un nombre par dizaine  
 * Tirer les 7 autres nombres et les injecter si liste par trop longue dans liste de la colonne  
