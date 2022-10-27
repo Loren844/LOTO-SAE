@@ -5,11 +5,17 @@
 
 int main()
 {
+    menuDem();
+
     srand(time(NULL));
     for(int i=0;i<3;i++)
     {
        creerCarton();
-       printf("\n");
     }
 
+    tirageLoto(); //affichage des cartons, du menu (tirer,pause,nouvelle partie...)
+
+    comptePoints();
+
+    return 0;
 }
