@@ -10,6 +10,18 @@ void affichTab (int tab[],int N)
     }
 }
 
+void affichCarton(int tab[][9])
+{
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<9;j++)
+        {
+            printf("%d ",tab[i][j]);
+        }
+        printf("\n");
+    }
+}
+
 int suppElemPos(int tab[],int pos,int taille)
 {
     for (int i=pos;i<taille-1;i++)
@@ -75,6 +87,45 @@ void creerCarton()
         tailleListe--;
     }
 
+
+    //tirage au sort des emplacements/lignes
+
+    int carton[3][9]={{0}};
+
+    for(int ligne=0;ligne<3;ligne++)
+    {
+        int cpt=0;
+        for(int col=0;col<9;col++)
+        {
+            printf("%d\n",3-ligne);
+            printf("%d\n",nbValCol[col]);
+            if(nbValCol[col]==(3-ligne))
+            {
+                printf("baise\n\n");
+                carton[ligne][col]=1;
+                //printf("%d\n",nbValCol[col]);
+                nbValCol[col]--;
+                //printf("%d\n",nbValCol[col]);
+                cpt++;
+            }
+        }
+        int colHasard;
+        while (cpt!=5)
+        {
+            colHasard=rand()%(9);
+            if (nbValCol[colHasard]!=0)
+            {
+                carton[ligne][col]=1;
+                nbValCol[colHasard]--;
+                cpt++;
+            }
+        }
+    }
+
+    affichCarton(carton);
+
+    // tirage au sort des nombres
+
     int listeVal[15],val,cpt=0;
 
     for(int i=0;i<9;i++)
@@ -94,5 +145,7 @@ void creerCarton()
     }
 
     triBulle(listeVal,15);
-    affichTab(listeVal,15);
+    //affichTab(listeVal,15);
+
+
 }
