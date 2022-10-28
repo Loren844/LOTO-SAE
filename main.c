@@ -7,7 +7,7 @@ int main()
 {
     srand(time(NULL));
     menuDemarrage(); //affichage du menu de démarrage
-
+/*
     for(int i=0;i<3;i++){
        creerCarton(); //creation de 3 cartons
     }
@@ -18,4 +18,5 @@ int main()
     }
     comptePoints(); //compte les points et définit le vainqueur
     return 0;
+    */
 }
