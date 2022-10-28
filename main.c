@@ -5,17 +5,9 @@
 
 int main()
 {
-    menuDem();
-
     srand(time(NULL));
-    for(int i=0;i<3;i++)
-    {
-       creerCarton();
-    }
-
-    tirageLoto(); //affichage des cartons, du menu (tirer,pause,nouvelle partie...)
-
-    comptePoints();
+    creerCarton();
+    printf("\n");
 
     return 0;
 }
