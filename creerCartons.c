@@ -94,30 +94,29 @@ void creerCarton()
 
     for(int ligne=0;ligne<3;ligne++)
     {
+        printf("LIGNE %d\n",ligne+1);
         int cpt=0;
         for(int col=0;col<9;col++)
         {
-            printf("%d\n",3-ligne);
-            printf("%d\n",nbValCol[col]);
             if(nbValCol[col]==(3-ligne))
             {
-                printf("baise\n\n");
-                carton[ligne][col]=1;
-                //printf("%d\n",nbValCol[col]);
+                carton[ligne][col]=1; //marche pas
                 nbValCol[col]--;
-                //printf("%d\n",nbValCol[col]);
                 cpt++;
+                printf("%d\n",cpt);
             }
-        }
-        int colHasard;
-        while (cpt!=5)
-        {
-            colHasard=rand()%(9);
-            if (nbValCol[colHasard]!=0)
+            int colHasard;
+            while (cpt!=5)
             {
-                carton[ligne][col]=1;
-                nbValCol[colHasard]--;
-                cpt++;
+                colHasard=rand()%(9);
+                if (nbValCol[colHasard]!=0)
+                {
+                    carton[ligne][col]=1; //marche pas
+                    nbValCol[colHasard]--;
+                    cpt++;
+                    printf("%d\n",cpt);
+                }
+
             }
         }
     }
@@ -126,7 +125,8 @@ void creerCarton()
 
     // tirage au sort des nombres
 
-    int listeVal[15],val,cpt=0;
+    int listeVal[15];
+    int val,compteur;
 
     for(int i=0;i<9;i++)
     {
@@ -134,18 +134,16 @@ void creerCarton()
         {
             val=rand()%(10)+i*10;
 
-            while(val==0 || estDansTab(listeVal,val,cpt)==1)
+            while(val==0 || estDansTab(listeVal,val,compteur)==1)
             {
                 val=rand()%(10)+i*10;
             }
 
-            listeVal[cpt]=val;
-            cpt++;
+            listeVal[compteur]=val;
+            compteur++;
         }
     }
 
     triBulle(listeVal,15);
-    //affichTab(listeVal,15);
-
 
 }
