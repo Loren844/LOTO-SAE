@@ -9,14 +9,17 @@ int main()
 
     int nbValCol[9]={1,1,1,1,1,1,1,1,1};
     int carton[3][9]={{0}};
+    int **p=carton;
     int listeVal[15];
 
     tirageCol(nbValCol);
-    tirageLig(nbValCol,carton[3][9]);
+    tirageLig(nbValCol,p);
     affichCarton(carton);
-    tirageNb(nbValCol[],listeVal[]);
+    /*
+    tirageNb(nbValCol,listeVal);
     triBulle(listeVal,15);
     printf("\n");
+    */
 
     return 0;
 }

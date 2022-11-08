@@ -87,20 +87,21 @@ void tirageCol(int nbValCol[])
     }
 }
 
-void tirageLig(int nbValCol[], int carton[][9]);
+void tirageLig(int nbValCol[], int p)
 {
+    int cpt;
     for(int ligne=0;ligne<3;ligne++)
     {
         printf("LIGNE %d\n",ligne+1);
-        int cpt=0;
+        cpt=0;
         for(int col=0;col<9;col++)
         {
             if(nbValCol[col]==(3-ligne))
             {
-                carton[ligne][col]=1; //marche pas
-                nbValCol[col]--;
+                //carton[ligne][col]=1;
+                //*(*(p+ligne)+col)=1;
+                nbValCol[col] = nbValCol[col] - 1;
                 cpt++;
-                printf("%d\n",cpt);
             }
             int colHasard;
             while (cpt!=5)
@@ -108,12 +109,11 @@ void tirageLig(int nbValCol[], int carton[][9]);
                 colHasard=rand()%(9);
                 if (nbValCol[colHasard]!=0)
                 {
-                    carton[ligne][col]=1; //marche pas
-                    nbValCol[colHasard]--;
+                    //carton[ligne][col]=1;
+                    //*(*(p+ligne)+col)=1; //marche pas
+                    nbValCol[colHasard] = nbValCol[colHasard] - 1;
                     cpt++;
-                    printf("%d\n",cpt);
                 }
-
             }
         }
     }

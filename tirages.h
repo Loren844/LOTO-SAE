@@ -6,7 +6,7 @@ void affichTab (int tab[],int N);
 int estDansTab(int tab[],int val,int taille);
 void triBulle(int tab[],int taille);
 void tirageCol(int nbValCol[]);
-void tirageLig(int nbValCol[], int carton[][9]);
+void tirageLig(int nbValCol[], int p);
 void tirageNb(int nbValCol[],int listeVal[]);
 
 
