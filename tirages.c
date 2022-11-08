@@ -139,3 +139,4 @@ void tirageNb(int nbValCol[], int listeVal[])
         }
     }
 }
+

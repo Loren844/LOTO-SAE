@@ -1,6 +1,0 @@
-#ifndef CREERCARTONS_H_INCLUDED
-#define CREERCARTONS_H_INCLUDED
-
-void creerCarton();
-
-#endif // CREERCARTONS_H_INCLUDED
