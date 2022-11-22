@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include "case.h"
 
 void affichTab (int tab[],int N)
 {
@@ -178,7 +179,7 @@ void remplace1(int carton[][9], int listeVal[])
     }
 }
 
-void creeCarton(int carton[][9])
+void creeCarton(Case carton[][9])
 {
     int nbValCol[9]={1,1,1,1,1,1,1,1,1};
 
@@ -196,5 +197,4 @@ void creeCarton(int carton[][9])
 
     remplace1(carton,listeVal);
 }
-
 
