@@ -24,19 +24,19 @@ int main()
     printf("\nJoueur 3 :\n");
     affichCarton(carton3);
 
-    int listeTirage[90]={0};
-    for (int i = 1;i < 90; i++){
-        listeTirage[i-1] = i;
+    int listeTirage[89]={0};
+    for (int i = 0;i < 89; i++)
+    {
+        listeTirage[i] = i+1;
     }
 
-    int tailleListeTirage=90,indTire,valTiree;
+    int tailleListeTirage=89,indTire,valTiree;
     while(tailleListeTirage>0)
     {
         indTire=rand()%tailleListeTirage;
         valTiree=listeTirage[indTire];
         suppElemPos(listeTirage,indTire,tailleListeTirage);
         tailleListeTirage--;
-        printf("\n%d",valTiree);
     }
 
     return 0;
