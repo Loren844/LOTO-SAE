@@ -1,6 +1,7 @@
-#include "menuLoto.c"
-#ifndef LOTO_SAE_MENUDEMARRAGE_H
-#define LOTO_SAE_MENUDEMARRAGE_H
+#ifndef MENULOTO_H
+#define MENULOTO_H
+
 int menuDemarrage();
 int menuPartie();
-#endif //LOTO_SAE_MENUDEMARRAGE_H
+
+#endif //MENULOTO_H
