@@ -5,12 +5,12 @@ typedef struct{
     int estTiree;
 } Case;
 
-void creerCaseDefaut(int *p);
-void creerCase(int *p, int valeur);
-void modifValeur(int *p, int newVal);
-void modifestTiree(int *p, int newestTiree);
-void afficheCase(int *p);
-int valeurCase(int *p);
-int estTireeCase(int *p);
+void creerCaseDefaut(Case *p);
+void creerCase(Case *p, int valeur);
+void modifValeur(Case *p, int newVal);
+void modifestTiree(Case *p, int newestTiree);
+void afficheCase(Case *p);
+int valeurCase(Case *p);
+int estTireeCase(Case *p);
 
 #endif // CASE_H_INCLUDED

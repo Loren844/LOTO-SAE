@@ -7,16 +7,18 @@
 int main()
 {
     srand(time(NULL));
-    system("color F0");
 
-    Case carton1[3][9]={{0}};
-    Case carton2[3][9]={{0}};
-    Case carton3[3][9]={{0}};
+    Case carton1[3][9];
+    Case carton2[3][9];
+    Case carton3[3][9];
 
-    creeCarton(carton1);
-    creeCarton(carton2);
-    creeCarton(carton3);
+    creerCarton(carton1);
+    creerCarton(carton2);
+    creerCarton(carton3);
 
+    affichCarton(carton1);
+
+    /*
     printf("Joueur 1 :\n");
     affichCarton(carton1);
     printf("\nJoueur 2 :\n");
@@ -38,6 +40,6 @@ int main()
         suppElemPos(listeTirage,indTire,tailleListeTirage);
         tailleListeTirage--;
     }
-
+    */
     return 0;
 }
