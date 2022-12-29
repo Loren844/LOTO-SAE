@@ -6,12 +6,12 @@
 
 void creerCaseDefaut(Case *p)
 {
-    (*p).val = 0;
+    (*p).valeur = 0;
 }
 
 void creerCase(Case *p, int valeur)
 {
-    (*p).val = valeur;
+    (*p).valeur = valeur;
 }
 
 void modifValeur(Case *p, int newVal)
@@ -24,19 +24,14 @@ void modifestTiree(Case *p, int newestTiree)
     p->estTiree = newestTiree;
 }
 
-void afficheValeur(Case *p)
-{
-    //return p->valeur; c un void tu peux pas return tdc
-}
-
 void afficheCase(Case *p)
 {
-    printf("%d",(*p).val);
+    printf("%d",(*p).valeur);
 }
 
 int valeurCase(Case *p)
 {
-    return (*p).val;
+    return (*p).valeur;
 }
 
 int estTireeCase(Case *p)

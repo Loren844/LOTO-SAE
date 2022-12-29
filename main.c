@@ -16,16 +16,10 @@ int main()
     creerCarton(carton2);
     creerCarton(carton3);
 
-    affichCarton(carton1);
+    affichCartons(carton1,carton2,carton3);
 
+    modifCarton(carton1[][9]);
     /*
-    printf("Joueur 1 :\n");
-    affichCarton(carton1);
-    printf("\nJoueur 2 :\n");
-    affichCarton(carton2);
-    printf("\nJoueur 3 :\n");
-    affichCarton(carton3);
-
     int listeTirage[89]={0};
     for (int i = 0;i < 89; i++)
     {

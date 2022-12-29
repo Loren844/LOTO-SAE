@@ -43,3 +43,7 @@ cmake-build-debug/.cmake/api/v1/reply/target-LOTO_SAE-Debug-0458b0cac20fed3d5e60
 cmake-build-debug/.cmake/api/v1/reply/index-2022-10-25T16-57-03-0933.json
 cmake-build-debug/CMakeFiles/LOTO_SAE.dir/test.c.o
 cmake-build-debug/LOTO_SAE
+cmake-build-debug/CMakeFiles/LOTO_SAE.dir/tirages.c.o
+cmake-build-debug/CMakeFiles/LOTO_SAE.dir/case.c.o
+cmake-build-debug/CMakeFiles/LOTO_SAE.dir/archive.c.o
+cmake-build-debug/CMakeFiles/LOTO_SAE.dir/main.c.o
