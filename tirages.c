@@ -84,8 +84,7 @@ void tirageLig(int nbValCol[], Case carton[][9])
         {
             if(nbValCol[col]==(3-ligne))
             {
-                modifValeur(carton[ligne][col], 1);
-                modifestTiree(carton[ligne][col], 1);
+                modifestTiree(&carton[ligne][col], 1);
                 nbValCol[col] = nbValCol[col] - 1;
                 suppElemVal(colNonTirees,col,taille);
                 taille--;
@@ -99,8 +98,7 @@ void tirageLig(int nbValCol[], Case carton[][9])
             colHasard=colNonTirees[hasard];
             if (nbValCol[colHasard]!=0)
             {
-                modifValeur(carton[ligne][colHasard], 1);
-                modifestTiree(carton[ligne][colHasard], 1);
+                modifestTiree(&carton[ligne][colHasard], 1);
                 nbValCol[colHasard] = nbValCol[colHasard] - 1;
                 suppElemVal(colNonTirees,colHasard,taille);
                 taille--;
@@ -164,45 +162,44 @@ void triBulle(int tab[],int taille)
     }
 }
 
-void remplace1(Case carton[][9], int listeVal[])
+void injecteVal(Case carton[][9], int listeVal[])
 {
     int cpt=0;
     for(int col=0;col<9;col++)
     {
         for(int ligne=0;ligne<3;ligne++)
         {
-            if(valeurCase(carton[ligne][col]) == 1)
+            if(estTireeCase(&carton[ligne][col]) == 1)
             {
-                modifValeur(carton[ligne][col], listeVal[cpt]);
+                modifValeur(&carton[ligne][col], listeVal[cpt]);
                 cpt++;
             }
         }
     }
 }
-//---------------------fonctions du main------------------------------------//
+//---------------------fonctions de création des cartons------------------------------------//
 
-//a modifier
 void affichCarton(Case tab[][9], int numJoueur)
 {
     for(int i=0;i<3;i++)
     {
         for(int j=0;j<9;j++)
         {
-            int val = valeurCase(tab);
-            if(estTireeCase(tab) == 0)
+            int val = valeurCase(&tab[i][j]);
+            if(estTireeCase(&tab[i][j]) == 0)
             {
                 //setColor(numJoueur + 1);
-                printf("%c", 183);
+                printf("X ");
                 //setColor(0);
             }
-            else if (estTireeCase(tab) == 1)
+            else if (estTireeCase(&tab[i][j]) == 1)
             {
                 printf("%d ",val);
             }
-            else if (estTireeCase(tab) == 2)
+            else if (estTireeCase(&tab[i][j]) == 2)
             {
                 //setColor(numJoueur + 1);
-                printf("%d", val);
+                printf("%d ", val);
                 //setColor(0);
             }
         }
@@ -220,7 +217,6 @@ void affichCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9])
         affichCarton(carton3, 3);
 }
 
-//fonctionne
 void creerCarton(Case carton[][9])
 {
     for(int i = 0; i < 3; i++)
@@ -233,6 +229,12 @@ void creerCarton(Case carton[][9])
     }
 }
 
+void creerCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9])
+{
+    creerCarton(carton1);
+    creerCarton(carton2);
+    creerCarton(carton3);
+}
 
 void modifCarton(Case carton[][9])
 {
@@ -250,5 +252,22 @@ void modifCarton(Case carton[][9])
     tirageNb(nbValCol2,listeVal);
     triBulle(listeVal,15);
 
-    remplace1(carton,listeVal);
+    injecteVal(carton,listeVal);
+}
+
+void modifCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9])
+{
+    modifCarton(carton1);
+    modifCarton(carton2);
+    modifCarton(carton3);
+}
+
+//-------------------------------fonctions de tirage----------------------------------------//
+
+void remplirListe(int liste[])
+{
+    for (int i = 0;i < 89; i++)
+    {
+        liste[i] = i+1;
+    }
 }

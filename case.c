@@ -29,6 +29,11 @@ void afficheCase(Case *p)
     printf("%d",(*p).valeur);
 }
 
+void affichEstTiree(Case *p)
+{
+    printf("%d",(*p).estTiree);
+}
+
 int valeurCase(Case *p)
 {
     return (*p).valeur;

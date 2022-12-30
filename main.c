@@ -12,19 +12,16 @@ int main()
     Case carton2[3][9];
     Case carton3[3][9];
 
-    creerCarton(carton1);
-    creerCarton(carton2);
-    creerCarton(carton3);
+    creerCartons(carton1,carton2,carton3);
+
+    modifCartons(carton1, carton2, carton3);
 
     affichCartons(carton1,carton2,carton3);
 
-    modifCarton(carton1[][9]);
-    /*
+
     int listeTirage[89]={0};
-    for (int i = 0;i < 89; i++)
-    {
-        listeTirage[i] = i+1;
-    }
+    remplirListe(listeTirage);
+
 
     int tailleListeTirage=89,indTire,valTiree;
     while(tailleListeTirage>0)
@@ -34,6 +31,6 @@ int main()
         suppElemPos(listeTirage,indTire,tailleListeTirage);
         tailleListeTirage--;
     }
-    */
+
     return 0;
 }

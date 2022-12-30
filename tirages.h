@@ -11,14 +11,20 @@ void tirageLig(int nbValCol[], Case carton[][9]);
 int estDansTab(int tab[],int val,int taille);
 void tirageNb(int nbValCol[], int listeVal[]);
 void triBulle(int tab[],int taille);
+void injecteVal(Case carton[][9], int listeVal[]);
 
-
-//-----fonctions du main-----//
-void creerCarton(Case carton[][9]);
+//-----fonctions de création des cartons-----//
 void affichCarton(Case tab[][9], int numJoueur);
 void affichCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9]);
+
+void creerCarton(Case carton[][9]);
+void creerCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9]);
+
 void modifCarton(Case carton[][9]);
-void remplace1(Case carton[][9], int listeVal[]);
+void modifCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9]);
+
+//--------fonctions de tirage--------//
+void remplirListe(int liste[]);
 
 
 #endif // TIRAGES_H_INCLUDED

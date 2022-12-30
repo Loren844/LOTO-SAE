@@ -16,6 +16,7 @@ void creerCase(Case *p, int valeur);
 void modifValeur(Case *p, int newVal);
 void modifestTiree(Case *p, int newestTiree);
 int afficheValeur(Case *p);
+void affichEstTiree(Case *p);
 int valeurCase(Case *p);
 int estTireeCase(Case *p);
 
