@@ -264,10 +264,3 @@ void modifCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9])
 
 //-------------------------------fonctions de tirage----------------------------------------//
 
-void remplirListe(int liste[])
-{
-    for (int i = 0;i < 89; i++)
-    {
-        liste[i] = i+1;
-    }
-}

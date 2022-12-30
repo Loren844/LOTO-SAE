@@ -24,7 +24,7 @@ void modifCarton(Case carton[][9]);
 void modifCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9]);
 
 //--------fonctions de tirage--------//
-void remplirListe(int liste[]);
+
 
 
 #endif // TIRAGES_H_INCLUDED
