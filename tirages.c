@@ -264,3 +264,20 @@ void modifCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9])
 
 //-------------------------------fonctions de tirage----------------------------------------//
 
+void checkNbDansCarton(Case carton[][9],int scoreJ[][1], int nb)
+{
+    int i = 0;
+    int j = 0;
+    while(i < 3 || valeurCase((&carton[i][j])) == nb)
+    {
+        while(j < 9 || valeurCase(&carton[i][j]) == nb){
+            j++;
+        }
+        i++;
+    }
+    if(i < 3 && j < 9)
+    {
+        modifestTiree(&carton[i][j], 2);
+        scoreJ[i][0]++;
+    }
+}

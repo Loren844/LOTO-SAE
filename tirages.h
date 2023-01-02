@@ -24,7 +24,7 @@ void modifCarton(Case carton[][9]);
 void modifCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9]);
 
 //--------fonctions de tirage--------//
-
+void checkNbDansCarton(Case carton[][9], int scoreJ[][1], int nb);
 
 
 #endif // TIRAGES_H_INCLUDED
