@@ -13,7 +13,7 @@ void initCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9])
 
 void remplirListe(int liste[])
 {
-    for (int i = 0;i < 89; i++)
+    for (int i = 0;i < 90; i++)
     {
         liste[i] = i+1;
     }
@@ -22,9 +22,9 @@ void remplirListe(int liste[])
 int tirageNbHasard(int listeTirage[], int *tailleListe)
 {
     //Tirer le nombre
-    srand(time(NULL));
     int nbHasard = listeTirage[rand() % *tailleListe];
-    *tailleListe = tailleListe - 1;
+    suppElemVal(listeTirage,nbHasard,*tailleListe);
+    *tailleListe = *tailleListe - 1;
     return nbHasard;
 }
 
@@ -50,22 +50,22 @@ int checkScores(int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1], int points
     {
         if (scoreJ1[0][0] == 5 || scoreJ1[1][0] == 5 || scoreJ1[2][0] == 5)
         {
+            *nbPhases += 1;
             points[0] += 10;
-            *nbPhases++;
             printf("Joueur 1 a fait quine ! Bravo à lui ");
         }
 
         else if (scoreJ2[0][0] == 5 || scoreJ2[1][0] == 5 || scoreJ2[2][0] == 5)
         {
             points[1] += 10;
-            *nbPhases++;
+            *nbPhases += 1;
             printf("Joueur 2 a fait quine ! Bravo à lui ");
         }
 
         else if (scoreJ3[0][0] == 5 || scoreJ3[1][0] == 5 || scoreJ3[2][0] == 5)
         {
             points[2] += 10;
-            *nbPhases++;
+            *nbPhases += 1;
             printf("Joueur 3 a fait quine ! Bravo à lui ");
         }
     }
@@ -75,21 +75,21 @@ int checkScores(int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1], int points
         if ((scoreJ1[0][0] == 5 && scoreJ1[1][0] == 5) || (scoreJ1[0][0] == 5 && scoreJ1[2][0] == 5) || (scoreJ1[1][0] == 5 && scoreJ1[2][0] == 5))
         {
             points[0] += 20;
-            *nbPhases++;
+            *nbPhases += 1;
             printf("Joueur 1 a fait double quine ! Bravo à lui ");
         }
 
         if ((scoreJ2[0][0] == 5 && scoreJ2[1][0] == 5) || (scoreJ2[0][0] == 5 && scoreJ2[2][0] == 5) || (scoreJ2[1][0] == 5 && scoreJ2[2][0] == 5))
         {
             points[1] += 20;
-            *nbPhases++;
+            *nbPhases += 1;
             printf("Joueur 2 a fait double quine ! Bravo à lui ");
         }
 
         if ((scoreJ3[0][0] == 5 && scoreJ3[1][0] == 5) || (scoreJ3[0][0] == 5 && scoreJ3[2][0] == 5) || (scoreJ3[1][0] == 5 && scoreJ3[2][0] == 5))
         {
             points[2] += 20;
-            *nbPhases++;
+            *nbPhases += 1;
             printf("Joueur 3 a fait double quine ! Bravo à lui ");
         }
     }
@@ -99,21 +99,21 @@ int checkScores(int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1], int points
         if (scoreJ1[0][0] == 5 && scoreJ1[1][0] == 5 && scoreJ1[2][0] == 5)
         {
             points[0] += 40;
-            *nbPhases++;
+            *nbPhases += 1;
             printf("Joueur 1 a fait bingo ! Bravo à lui ");
         }
 
         else if (scoreJ2[0][0] == 5 && scoreJ2[1][0] == 5 && scoreJ2[2][0] == 5)
         {
             points[1] += 40;
-            *nbPhases++;
+            *nbPhases += 1;
             printf("Joueur 2 a fait bingo ! Bravo à lui ");
         }
 
         else if (scoreJ3[0][0] == 5 && scoreJ3[1][0] == 5 && scoreJ3[2][0] == 5)
         {
             points[2] += 40;
-            *nbPhases++;
+            *nbPhases += 1;
             printf("Joueur 3 a fait bingo ! Bravo à lui ");
         }
     }
@@ -142,31 +142,17 @@ int comptePoints(int points[3])
     }
 }
 
+
 void afficheScores(int vainqueur, int points[3])
 {
+    printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%cL%cO%cT%cO%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",asciicoinhautgauche,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciicoinhautdroite);
+    printf("%c                                                                                        %c\n",asciimur,asciimur);
+    printf("%c                                     SCORE FINAUX                                       %c\n",asciimur,asciimur);
+    printf("%c                                  Joueur 1 : %d points                                  %c\n",asciimur,points[0],asciimur);
+    printf("%c                                  Joueur 2 : %d points                                  %c\n",asciimur,points[1],asciimur);
+    printf("%c                                  Joueur 3 : %d points                                  %c\n",asciimur,points[2],asciimur);
+    printf("%c                       Le vainqueur est le Joueur %d ! Bravo à lui                      %c\n",asciimur,vainqueur,asciimur);
+    printf("%c                                                                                        %c\n",asciimur,asciimur);
+    printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",asciicoinbasgauche,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciicoinbasdroite);
 
-    /*
-    si 70
-        joueur a 70 a tout fait
-    si 60
-        joueur a 60 a fait bingo et double quine
-        joueur a 10 a fait quine
-    si 50
-        joueur a 50 a gagné bingo quine
-        joueur a 20 a fait double quine
-    si 40
-        joueur a 40 a gagné bingo
-        si 30
-            joueur a 30 a fait quine et double
-        sinon
-            joueur a 20 a fait double
-            joueur a 10 a fait quine
-
-    bravo a meilleur score
-     */
-
-    //Joueur 1 : 20 points
-    //Joueur 2 : 10 points
-    //Joueur 3 : 40 points
-    //Le vainqueur est le Joueur 3 ! Bravo à lui
 }

@@ -211,10 +211,13 @@ void affichCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9])
 {
         printf("Joueur 1 :\n");
         affichCarton(carton1, 31);
+
+
         printf("\nJoueur 2 :\n");
         affichCarton(carton2, 2);
         printf("\nJoueur 3 :\n");
         affichCarton(carton3, 3);
+        printf("\n");
 }
 
 void creerCarton(Case carton[][9])
@@ -266,11 +269,26 @@ void modifCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9])
 
 void checkNbDansCarton(Case carton[][9],int scoreJ[][1], int nb)
 {
-    int i = 0;
+   for (int i = 0; i < 3; i++)
+   {
+       for(int j = 0; j < 9; j++)
+       {
+           if(valeurCase(&carton[i][j]) == nb)
+           {
+               scoreJ[i][0]++;
+               modifestTiree(&carton[i][j], 2);
+           }
+       }
+   }
+}
+
+/*
+ *  int i = 0;
     int j = 0;
-    while(i < 3 || valeurCase((&carton[i][j])) == nb)
+    while (i < 3 && valeurCase((&carton[i][j])) != nb)
     {
-        while(j < 9 || valeurCase(&carton[i][j]) == nb){
+        while (j < 9 && valeurCase(&carton[i][j]) != nb)
+        {
             j++;
         }
         i++;
@@ -278,6 +296,6 @@ void checkNbDansCarton(Case carton[][9],int scoreJ[][1], int nb)
     if(i < 3 && j < 9)
     {
         modifestTiree(&carton[i][j], 2);
-        scoreJ[i][0]++;
+        scoreJ[i][0] += 1;
     }
-}
+ */
