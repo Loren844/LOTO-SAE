@@ -3,6 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
+#include <windows.h>
+
 #define asciimur 186
 #define asciiligne 205
 #define asciicoinhautgauche 201
@@ -64,6 +67,101 @@ void recupNbTires(Case carton1[][9], Case carton2[][9], Case carton3[][9], int n
     }
 }
 
+void bingo(int numGagnant)
+{
+    system("color 10");
+            sleep(0.7);
+            system("color 40");
+            sleep(0.7);
+            system("color 50");
+            sleep(0.7);
+            system("color 10");
+            sleep(0.7);
+            system("color 40");
+            sleep(0.7);
+            system("color 50");
+            sleep(0.7);
+            system("color 10");
+            sleep(0.7);
+            system("color 40");
+            sleep(0.7);
+            system("color 00");
+            sleep(1);
+            for(int i = 0; i < 40; i++)
+            {
+                if(i%2 == 0 && numGagnant == 1)
+                {
+                    system("color 16");
+                }
+                else if(i%2 == 1 && numGagnant == 1)
+                {
+                    system("color 1F");
+                }
+
+                else if(i%2 == 0 && numGagnant == 2)
+                {
+                    system("color 46");
+                }
+                else if(i%2 == 1 && numGagnant == 2)
+                {
+                    system("color 4F");
+                }
+
+                else if(i%2 == 0 && numGagnant == 3)
+                {
+                    system("color 56");
+                }
+                else
+                {
+                    system("color 5F");
+                }
+
+                printf("BBBBBBBBBBBBBBBBB  IIIIIIIIINNNNNNNN        NNNNNNNN       GGGGGGGGGGGGG    OOOOOOOOO         OOOOOOOOO         OOOOOOOOO           !!!\n");
+                printf("B::::::::::::::::B I::::::::N:::::::N       N::::::N    GGG::::::::::::G  OO:::::::::OO     OO:::::::::OO     OO:::::::::OO        !!:!!\n");
+                printf("B::::::BBBBBB:::::BI::::::::N::::::::N      N::::::N  GG:::::::::::::::GOO:::::::::::::OO OO:::::::::::::OO OO:::::::::::::OO      !:::!\n");
+                printf("BB:::::B     B:::::II::::::IN:::::::::N     N::::::N G:::::GGGGGGGG::::O:::::::OOO:::::::O:::::::OOO:::::::O:::::::OOO:::::::O     !:::!\n");
+                printf("  B::::B     B:::::B I::::I N::::::::::N    N::::::NG:::::G       GGGGGO::::::O   O::::::O::::::O   O::::::O::::::O   O::::::O     !:::!\n");
+                printf("  B::::B     B:::::B I::::I N:::::::::::N   N::::::G:::::G             O:::::O     O:::::O:::::O     O:::::O:::::O     O:::::O     !:::!\n");
+                printf("  B::::BBBBBB:::::B  I::::I N:::::::N::::N  N::::::G:::::G             O:::::O     O:::::O:::::O     O:::::O:::::O     O:::::O     !:::!\n");
+                printf("  B:::::::::::::BB   I::::I N::::::N N::::N N::::::G:::::G    GGGGGGGGGO:::::O     O:::::O:::::O     O:::::O:::::O     O:::::O     !:::!\n");
+                printf("  B::::BBBBBB:::::B  I::::I N::::::N  N::::N:::::::G:::::G    G::::::::O:::::O     O:::::O:::::O     O:::::O:::::O     O:::::O     !:::!\n");
+                printf("  B::::B     B:::::B I::::I N::::::N   N:::::::::::G:::::G    GGGGG::::O:::::O     O:::::O:::::O     O:::::O:::::O     O:::::O     !:::!\n");
+                printf("  B::::B     B:::::B I::::I N::::::N    N::::::::::G:::::G        G::::O:::::O     O:::::O:::::O     O:::::O:::::O     O:::::O     !!:!!\n");
+                printf("  B::::B     B:::::B I::::I N::::::N     N:::::::::NG:::::G       G::::O::::::O   O::::::O::::::O   O::::::O::::::O   O::::::O      !!!\n");
+                printf("BB:::::BBBBBB::::::II::::::IN::::::N      N::::::::N G:::::GGGGGGGG::::O:::::::OOO:::::::O:::::::OOO:::::::O:::::::OOO:::::::O\n");
+                printf("B:::::::::::::::::BI::::::::N::::::N       N:::::::N  GG:::::::::::::::GOO:::::::::::::OO OO:::::::::::::OO OO:::::::::::::OO       !!!\n");
+                printf("B::::::::::::::::B I::::::::N::::::N        N::::::N    GGG::::::GGG:::G  OO:::::::::OO     OO:::::::::OO     OO:::::::::OO        !!:!!\n");
+                printf("BBBBBBBBBBBBBBBBB  IIIIIIIIINNNNNNNN         NNNNNNN       GGGGGG   GGGG    OOOOOOOOO         OOOOOOOOO         OOOOOOOOO           !!!\n");
+                sleep(0.8);
+            }
+            system("cls");
+            system("color F0");
+}
+
+void recupPhase(int points[], int nbPhase)
+{
+    int totalPts = points[0] + points[1] + points[2];
+    if (totalPts == 0)
+    {
+        nbPhase = 0;
+    }
+
+    else if (totalPts == 10)
+    {
+        nbPhase = 1;
+    }
+
+    else if (totalPts == 30)
+    {
+        nbPhase = 2;
+    }
+
+    else if (totalPts == 70)
+    {
+        nbPhase = 3;
+    }
+}
+
 
 int tirageNbHasard(int listeTirage[], int *tailleListe)
 {
@@ -97,27 +195,28 @@ int checkScores(int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1], int points
     //premier a 2 lignes a 5 = double quine -> points[x] += 20;
     //premier a 3 lignes a 5 = bingo -> points[x] += 40;
     //affiche a la fin du tour si quelqu'un a fait quine/double quine/bingo
+    int numGagnant = 0;
     if (*nbPhases == 0)
     {
         if (scoreJ1[0][0] == 5 || scoreJ1[1][0] == 5 || scoreJ1[2][0] == 5)
         {
             *nbPhases += 1;
             points[0] += 10;
-            printf("Joueur 1 a fait quine ! Il gagne 10 points. ");
+            printf("Joueur 1 a fait quine ! Il gagne 10 points.\n\n");
         }
 
         else if (scoreJ2[0][0] == 5 || scoreJ2[1][0] == 5 || scoreJ2[2][0] == 5)
         {
             points[1] += 10;
             *nbPhases += 1;
-            printf("Joueur 2 a fait quine ! Il gagne 10 points. ");
+            printf("Joueur 2 a fait quine ! Il gagne 10 points.\n\n");
         }
 
         else if (scoreJ3[0][0] == 5 || scoreJ3[1][0] == 5 || scoreJ3[2][0] == 5)
         {
             points[2] += 10;
             *nbPhases += 1;
-            printf("Joueur 3 a fait quine ! Il gagne 10 points. ");
+            printf("Joueur 3 a fait quine ! Il gagne 10 points.\n\n");
         }
     }
 
@@ -127,21 +226,21 @@ int checkScores(int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1], int points
         {
             points[0] += 20;
             *nbPhases += 1;
-            printf("Joueur 1 a fait double quine ! Il gagne 20 points. ");
+            printf("Joueur 1 a fait double quine ! Il gagne 20 points.\n\n");
         }
 
         if ((scoreJ2[0][0] == 5 && scoreJ2[1][0] == 5) || (scoreJ2[0][0] == 5 && scoreJ2[2][0] == 5) || (scoreJ2[1][0] == 5 && scoreJ2[2][0] == 5))
         {
             points[1] += 20;
             *nbPhases += 1;
-            printf("Joueur 2 a fait double quine ! Il gagne 20 points. ");
+            printf("Joueur 2 a fait double quine ! Il gagne 20 points.\n\n");
         }
 
         if ((scoreJ3[0][0] == 5 && scoreJ3[1][0] == 5) || (scoreJ3[0][0] == 5 && scoreJ3[2][0] == 5) || (scoreJ3[1][0] == 5 && scoreJ3[2][0] == 5))
         {
             points[2] += 20;
             *nbPhases += 1;
-            printf("Joueur 3 a fait double quine ! Il gagne 20 points. ");
+            printf("Joueur 3 a fait double quine ! Il gagne 20 points.\n\n");
         }
     }
 
@@ -151,29 +250,32 @@ int checkScores(int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1], int points
         {
             points[0] += 40;
             *nbPhases += 1;
-            printf("Joueur 1 a fait bingo ! Il gagne 40 points. ");
+            numGagnant = 1;
+            bingo(numGagnant);
+            system("cls");
         }
 
         else if (scoreJ2[0][0] == 5 && scoreJ2[1][0] == 5 && scoreJ2[2][0] == 5)
         {
             points[1] += 40;
             *nbPhases += 1;
-            printf("Joueur 2 a fait bingo ! Il gagne 40 points. ");
+            numGagnant = 2;
+            bingo(numGagnant);
+            sleep(3);
+            system("cls");
         }
 
         else if (scoreJ3[0][0] == 5 && scoreJ3[1][0] == 5 && scoreJ3[2][0] == 5)
         {
             points[2] += 40;
             *nbPhases += 1;
-            printf("Joueur 3 a fait bingo ! Il gagne 40 points. ");
+            numGagnant = 3;
+            bingo(numGagnant);
+            system("cls");
         }
     }
 }
 
-void menuPartie()
-{
-    //affiche le menu
-}
 
 int comptePoints(int points[3])
 {

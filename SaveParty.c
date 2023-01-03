@@ -1,3 +1,7 @@
+#include "case.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 //Faire les imports necessaire dans le main.
 void saveDonnees(Case grille[3][9])
 {
@@ -9,7 +13,7 @@ void saveDonnees(Case grille[3][9])
         {
             for(int l = 0 ; l < 9 ; l++)
             {
-                fprintf(fichier,"%d %d;",grille[k][l].val,grille[k][l].estTiree);
+                fprintf(fichier,"%d %d;",grille[k][l].valeur,grille[k][l].estTiree);
             }
         }
         fprintf(fichier,"\n");
@@ -31,7 +35,7 @@ void importDonnees(Case grille[3][9])
     {
         if(k%2==0)
         {
-            (&grille[i][j])->val = value;
+            (&grille[i][j])->valeur = value;
             j++;
             if(j%9==0)
             {

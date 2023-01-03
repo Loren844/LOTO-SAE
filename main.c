@@ -38,24 +38,27 @@ int main()
     else if (dem == 2)
     {
         //importDonnees();
-        //recupNbTires(nbTiresJ1,nbTiresJ2,nbTiresJ3);
-        //recupPhase(points);
+        //recupNbTires(carton1, carton2, carton3, nbTiresJ1, nbTiresJ2,nbTiresJ3);
+        //recupPhase(points[], &nbPhase);
     }
 
-    while(nbPhases != 3){
-
+    while(nbPhases != 3)
+    {
         int nbHasard = tirageNbHasard(listeTirage, &tailleListe);
-
         tourLoto(nbHasard,carton1,carton2,carton3,nbTiresJ1,nbTiresJ2,nbTiresJ3);
         checkScores(nbTiresJ1, nbTiresJ2,nbTiresJ3,points,&nbPhases); //check les scores a chaque tour et affiche si quine/double quine/bingo
-        affichePoints(points);
-        affichCartons(carton1,carton2,carton3);
-        printf("Nombre tir%c : %d \n", 130, nbHasard);
+        if (nbPhases != 3)
+        {
+            affichePoints(points);
+            affichCartons(carton1,carton2,carton3);
+            printf("Nombre tir%c : %d \n", 130, nbHasard);
+            getchar();
+        }
         //saveDonnees();
-        getchar();
         system("cls");
     }
     int vainqueur = comptePoints(points);
     afficheScores(vainqueur, points);
+    getchar();
     return 0;
 }
