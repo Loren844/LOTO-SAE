@@ -2,10 +2,14 @@
 #include <stdlib.h>
 #include <assert.h>
 #include "case.h"
-/*
 #include <windows.h>
 #include <dos.h>
 #include <dir.h>
+#define asciibloc 219
+#define asciiligne 179
+
+#define asciihaut 220
+#define asciibas 223
 
 //---------------fonctions niveau 1-----------------//
 void setColor(int ForgC)
@@ -23,7 +27,7 @@ void setColor(int ForgC)
         SetConsoleTextAttribute(hStdOut, wColor);
     }
 }
-*/
+
 
 void suppElemPos(int tab[],int pos,int taille)
 {
@@ -181,30 +185,54 @@ void injecteVal(Case carton[][9], int listeVal[])
 
 void affichCarton(Case tab[][9], int numJoueur)
 {
+    setColor(numJoueur + 2);
+    for(int i=0;i<37;i++)
+    {
+        printf("%c",asciihaut);
+    }
+    printf("\n");
     for(int i=0;i<3;i++)
     {
+        setColor(numJoueur + 2);
+        printf("%c",asciibloc);
+        setColor(0);
         for(int j=0;j<9;j++)
         {
             int val = valeurCase(&tab[i][j]);
             if(estTireeCase(&tab[i][j]) == 0)
             {
-                //setColor(numJoueur + 1);
-                printf("X ");
-                //setColor(0);
+                setColor(numJoueur + 2);
+                if (j == 0){
+                    printf("%c%c%c", asciibloc,asciibloc, asciibloc);
+                }
+                else{
+                    printf("%c%c%c%c", asciibloc, asciibloc, asciibloc, asciibloc);
+                }
+                setColor(0);
             }
             else if (estTireeCase(&tab[i][j]) == 1)
             {
-                printf("%d ",val);
+                printf(" %d ",val);
             }
             else if (estTireeCase(&tab[i][j]) == 2)
             {
-                //setColor(numJoueur + 1);
-                printf("%d ", val);
-                //setColor(0);
+                setColor(numJoueur + 2);
+                printf(" %d ", val);
+                setColor(0);
             }
         }
+        setColor(numJoueur + 2);
+        printf("%c",asciibloc);
+        setColor(0);
         printf("\n");
     }
+    setColor(numJoueur + 2);
+    for(int i=0;i<37;i++)
+    {
+        printf("%c",asciibas);
+    }
+    setColor(0);
+    printf("\n");
 }
 
 void affichCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9])

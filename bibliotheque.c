@@ -3,6 +3,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#define asciimur 186
+#define asciiligne 205
+#define asciicoinhautgauche 201
+#define asciicoinhautdroite 187
+#define asciicoinbasgauche 200
+#define asciicoinbasdroite 188
+
 
 void initCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9])
 {
@@ -28,6 +35,11 @@ int tirageNbHasard(int listeTirage[], int *tailleListe)
     return nbHasard;
 }
 
+void affichePoints(int points[])
+{
+    printf("          SCORES          \n");
+    printf("J1 : %d | J2 : %d | J3 : %d\n",points[0], points[1], points[2]);
+}
 void tourLoto(int nbHasard,Case carton1[][9], Case carton2[][9], Case carton3[][9], int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1])
 {
     //verifier chaque carton
@@ -52,21 +64,21 @@ int checkScores(int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1], int points
         {
             *nbPhases += 1;
             points[0] += 10;
-            printf("Joueur 1 a fait quine ! Bravo à lui ");
+            printf("Joueur 1 a fait quine ! Il gagne 10 points. ");
         }
 
         else if (scoreJ2[0][0] == 5 || scoreJ2[1][0] == 5 || scoreJ2[2][0] == 5)
         {
             points[1] += 10;
             *nbPhases += 1;
-            printf("Joueur 2 a fait quine ! Bravo à lui ");
+            printf("Joueur 2 a fait quine ! Il gagne 10 points. ");
         }
 
         else if (scoreJ3[0][0] == 5 || scoreJ3[1][0] == 5 || scoreJ3[2][0] == 5)
         {
             points[2] += 10;
             *nbPhases += 1;
-            printf("Joueur 3 a fait quine ! Bravo à lui ");
+            printf("Joueur 3 a fait quine ! Il gagne 10 points. ");
         }
     }
 
@@ -76,21 +88,21 @@ int checkScores(int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1], int points
         {
             points[0] += 20;
             *nbPhases += 1;
-            printf("Joueur 1 a fait double quine ! Bravo à lui ");
+            printf("Joueur 1 a fait double quine ! Il gagne 20 points. ");
         }
 
         if ((scoreJ2[0][0] == 5 && scoreJ2[1][0] == 5) || (scoreJ2[0][0] == 5 && scoreJ2[2][0] == 5) || (scoreJ2[1][0] == 5 && scoreJ2[2][0] == 5))
         {
             points[1] += 20;
             *nbPhases += 1;
-            printf("Joueur 2 a fait double quine ! Bravo à lui ");
+            printf("Joueur 2 a fait double quine ! Il gagne 20 points. ");
         }
 
         if ((scoreJ3[0][0] == 5 && scoreJ3[1][0] == 5) || (scoreJ3[0][0] == 5 && scoreJ3[2][0] == 5) || (scoreJ3[1][0] == 5 && scoreJ3[2][0] == 5))
         {
             points[2] += 20;
             *nbPhases += 1;
-            printf("Joueur 3 a fait double quine ! Bravo à lui ");
+            printf("Joueur 3 a fait double quine ! Il gagne 20 points. ");
         }
     }
 
@@ -100,21 +112,21 @@ int checkScores(int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1], int points
         {
             points[0] += 40;
             *nbPhases += 1;
-            printf("Joueur 1 a fait bingo ! Bravo à lui ");
+            printf("Joueur 1 a fait bingo ! Il gagne 40 points. ");
         }
 
         else if (scoreJ2[0][0] == 5 && scoreJ2[1][0] == 5 && scoreJ2[2][0] == 5)
         {
             points[1] += 40;
             *nbPhases += 1;
-            printf("Joueur 2 a fait bingo ! Bravo à lui ");
+            printf("Joueur 2 a fait bingo ! Il gagne 40 points. ");
         }
 
         else if (scoreJ3[0][0] == 5 && scoreJ3[1][0] == 5 && scoreJ3[2][0] == 5)
         {
             points[2] += 40;
             *nbPhases += 1;
-            printf("Joueur 3 a fait bingo ! Bravo à lui ");
+            printf("Joueur 3 a fait bingo ! Il gagne 40 points. ");
         }
     }
 }
@@ -151,7 +163,7 @@ void afficheScores(int vainqueur, int points[3])
     printf("%c                                  Joueur 1 : %d points                                  %c\n",asciimur,points[0],asciimur);
     printf("%c                                  Joueur 2 : %d points                                  %c\n",asciimur,points[1],asciimur);
     printf("%c                                  Joueur 3 : %d points                                  %c\n",asciimur,points[2],asciimur);
-    printf("%c                       Le vainqueur est le Joueur %d ! Bravo à lui                      %c\n",asciimur,vainqueur,asciimur);
+    printf("%c                       Le vainqueur est le Joueur %d ! Bravo a lui                      %c\n",asciimur,vainqueur,asciimur);
     printf("%c                                                                                        %c\n",asciimur,asciimur);
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",asciicoinbasgauche,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciiligne,asciicoinbasdroite);
 
