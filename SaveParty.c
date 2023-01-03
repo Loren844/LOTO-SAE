@@ -13,7 +13,7 @@ void saveDonnees(Case carton1[3][9], Case carton2[3][9], Case carton3[3][9], int
         {
             for(int l = 0 ; l < 9 ; l++)
             {
-                fprintf(fichier,"%d %d;",grille[k][l].valeur,grille[k][l].estTiree);
+                fprintf(fichier,"%d %d;", valeurCase(&carton1[k][l]), estTireeCase(&carton1[k][l]));
             }
         }
         fprintf(fichier,"\n");
@@ -35,7 +35,7 @@ void importDonnees(Case carton1[3][9], Case carton2[3][9], Case carton3[3][9], i
     {
         if(k%2==0)
         {
-            (&grille[i][j])->valeur = value;
+            modifValeur(&carton1[i][j], value);
             j++;
             if(j%9==0)
             {
@@ -44,7 +44,7 @@ void importDonnees(Case carton1[3][9], Case carton2[3][9], Case carton3[3][9], i
             }
         } else
         {
-            (&grille[i][j])->estTiree = value;
+            modifestTiree(&carton1[i][j], value);
         }
         value = atoi(strToken);
         strToken = strtok ( NULL, separators );
