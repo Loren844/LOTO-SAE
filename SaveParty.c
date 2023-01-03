@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 //Faire les imports necessaire dans le main.
-void saveDonnees(Case grille[3][9])
+void saveDonnees(Case carton1[3][9], Case carton2[3][9], Case carton3[3][9], int listeTirage[90], int tailleListe, int points[3])
 {
     FILE* fichier = NULL;
     fichier = fopen("stockStruc.txt","w");
@@ -21,7 +21,7 @@ void saveDonnees(Case grille[3][9])
     }
 }
 
-void importDonnees(Case grille[3][9])
+void importDonnees(Case carton1[3][9], Case carton2[3][9], Case carton3[3][9], int listeTirage[90], int tailleListe, int points[3])
 {
     FILE* fichier = NULL;
     int i=0,j=0,k=1;
