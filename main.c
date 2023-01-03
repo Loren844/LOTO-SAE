@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "menuLoto.h"
 #include "case.h"
 #include "tirages.h"
 #include "bibliotheque.h"
@@ -8,18 +9,16 @@ int main()
 {
     system("color F0");
     srand(time(NULL));
-    //menuDemarrage(); //affichage du menu de démarrage
+    int dem = menuDemarrage(); //affichage du menu de démarrage
 
     //creation de 3 cartons
     Case carton1[3][9];
     Case carton2[3][9];
     Case carton3[3][9];
-    initCartons(carton1,carton2,carton3);
 
     //creation/remplissage de la liste de nombres
-    int listeTirage[90]={0};
+    int listeTirage[90] = {0};
     int tailleListe = 90;
-    remplirListe(listeTirage);
 
     //initialisation de variables utiles
     int points[3] = {0, 0, 0};
@@ -27,6 +26,17 @@ int main()
     int nbTiresJ2[3][1] = {{0},{0},{0}};
     int nbTiresJ3[3][1] = {{0},{0},{0}};
     int nbPhases = 0; //correspond au nb de phases deja faites (quine, bingo..)
+
+    if (dem == 1)
+    {
+        initCartons(carton1,carton2,carton3);
+        remplirListe(listeTirage);
+    }
+
+    else if (dem == 2)
+    {
+        //importDonnees();
+    }
 
     while(nbPhases != 3){
 
