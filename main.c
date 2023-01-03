@@ -5,6 +5,8 @@
 #include "case.h"
 #include "tirages.h"
 #include "bibliotheque.h"
+#include "SaveParty.h"
+
 int main()
 {
     system("color F0");
@@ -36,6 +38,8 @@ int main()
     else if (dem == 2)
     {
         //importDonnees();
+        //recupNbTires(nbTiresJ1,nbTiresJ2,nbTiresJ3);
+        //recupPhase(points);
     }
 
     while(nbPhases != 3){
@@ -44,10 +48,10 @@ int main()
 
         tourLoto(nbHasard,carton1,carton2,carton3,nbTiresJ1,nbTiresJ2,nbTiresJ3);
         checkScores(nbTiresJ1, nbTiresJ2,nbTiresJ3,points,&nbPhases); //check les scores a chaque tour et affiche si quine/double quine/bingo
-        //menuPartie(); //affichage du menu de jeu (quitter et save,pause,continuer)
         affichePoints(points);
         affichCartons(carton1,carton2,carton3);
         printf("Nombre tir%c : %d \n", 130, nbHasard);
+        //saveDonnees();
         getchar();
         system("cls");
     }

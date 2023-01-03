@@ -26,6 +26,45 @@ void remplirListe(int liste[])
     }
 }
 
+void recupNbTires(Case carton1[][9], Case carton2[][9], Case carton3[][9], int nbTiresJ1[3][1], int nbTiresJ2[3][1],int nbTiresJ3[3][1])
+{
+    //import nbTires du carton 1
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            if(estTireeCase(&carton1[i][j]) == 2)
+            {
+                nbTiresJ1[i][0]++;
+            }
+        }
+    }
+    //import nbTires du carton 2
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            if(estTireeCase(&carton2[i][j]) == 2)
+            {
+                nbTiresJ2[i][0]++;
+            }
+        }
+    }
+
+    //import nbTires du carton 3
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            if(estTireeCase(&carton3[i][j]) == 2)
+            {
+                nbTiresJ3[i][0]++;
+            }
+        }
+    }
+}
+
+
 int tirageNbHasard(int listeTirage[], int *tailleListe)
 {
     //Tirer le nombre

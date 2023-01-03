@@ -1,10 +1,5 @@
-//
-// Created by loren on 01/01/2023.
-//
-
-#include "SaveParty.h"
 //Faire les imports necessaire dans le main.
-void saveGrille(Case grille[3][9])
+void saveDonnees(Case grille[3][9])
 {
     FILE* fichier = NULL;
     fichier = fopen("stockStruc.txt","w");
@@ -22,7 +17,7 @@ void saveGrille(Case grille[3][9])
     }
 }
 
-void recupere_donnees_fichier(Case grille[3][9])
+void importDonnees(Case grille[3][9])
 {
     FILE* fichier = NULL;
     int i=0,j=0,k=1;
