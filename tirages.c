@@ -136,10 +136,24 @@ void tirageNb(int nbValCol[], int listeVal[])
     {
         for(int j=0;j<nbValCol[i];j++)
         {
-            val=rand()%(10)+i*10;
-            while(val==0 || estDansTab(listeVal,val,compteur)==1)
+            if (i == 8)
+            {
+                val=rand()%(11)+i*10;
+            }
+            else
             {
                 val=rand()%(10)+i*10;
+            }
+            while(val==0 || estDansTab(listeVal,val,compteur)==1)
+            {
+                if (i == 8)
+                {
+                    val=rand()%(11)+i*10;
+                }
+                else
+                {
+                    val=rand()%(10)+i*10;
+                }
             }
             listeVal[compteur]=val;
             compteur++;
