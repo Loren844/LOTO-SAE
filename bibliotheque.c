@@ -1,5 +1,7 @@
 #include "case.h"
 #include "tirages.h"
+#include "save_import.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -63,6 +65,27 @@ void recupNbTires(Case carton1[][9], Case carton2[][9], Case carton3[][9], int n
             {
                 nbTiresJ3[i][0]++;
             }
+        }
+    }
+}
+
+void recupListeTirage(int listeNbTires[], int tailleListeTires, int listeTirage[])
+{
+    int cpt = 0;
+    for(int i = 0; i < 90; i++)
+    {
+        int booleen = 0;
+        for(int j = 0; j < tailleListeTires; j++)
+        {
+            if(i == listeNbTires[j])
+            {
+                booleen = 1;
+            }
+        }
+        if (booleen == 0)
+        {
+            listeTirage[cpt] = i;
+            cpt++;
         }
     }
 }
@@ -162,13 +185,14 @@ void recupPhase(int points[], int nbPhase)
     }
 }
 
-
-int tirageNbHasard(int listeTirage[], int *tailleListe)
+int tirageNbHasard(int listeTirage[], int *tailleListe, int listeNbTires[], int *tailleListeTires)
 {
     //Tirer le nombre
     int nbHasard = listeTirage[rand() % *tailleListe];
     suppElemVal(listeTirage,nbHasard,*tailleListe);
     *tailleListe = *tailleListe - 1;
+    listeNbTires[*tailleListe] = nbHasard;
+    *tailleListeTires++;
     return nbHasard;
 }
 
@@ -294,6 +318,3 @@ int comptePoints(int points[3])
         return 3;
     }
 }
-
-
-
