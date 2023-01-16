@@ -4,11 +4,6 @@
 #include <time.h>
 #include "case.h"
 
-int lenTab(int tab[])
-{
-    return sizeof(tab) / sizeof(tab[0]);
-}
-
 //save
 void saveGrille(Case grille[][9],char mode[3])
 {
@@ -84,7 +79,7 @@ void recupereGrille(Case grille[3][9],int nLigne)
     fclose(fichier);
 }
 
-void recupereGameInfo(int *listeTirage,int tailleListe,int points[3])
+void recupereGameInfo(int *listeTirage,int points[3])
 {
     FILE* fichier = NULL;
     int value = 0;
@@ -116,4 +111,14 @@ void recupereGameInfo(int *listeTirage,int tailleListe,int points[3])
         j++;
     }
     fclose(fichier);
+}
+
+int recupereTailleListe(int listeTirage[])
+{
+    int cpt = 0;
+    while(listeTirage[cpt] != 0)
+    {
+        cpt++;
+    }
+    return cpt;
 }

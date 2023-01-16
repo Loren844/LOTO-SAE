@@ -72,17 +72,17 @@ void recupNbTires(Case carton1[][9], Case carton2[][9], Case carton3[][9], int n
 void recupListeTirage(int listeNbTires[], int tailleListeTires, int listeTirage[])
 {
     int cpt = 0;
-    for(int i = 0; i < 90; i++)
+    for(int i = 1; i <= 90; i++)
     {
-        int booleen = 0;
+        int test = 0;
         for(int j = 0; j < tailleListeTires; j++)
         {
             if(i == listeNbTires[j])
             {
-                booleen = 1;
+                test = 1;
             }
         }
-        if (booleen == 0)
+        if (test == 0)
         {
             listeTirage[cpt] = i;
             cpt++;
@@ -161,27 +161,27 @@ void bingo(int numGagnant)
             system("color F0");
 }
 
-void recupPhase(int points[], int nbPhase)
+int recupPhase(int points[])
 {
     int totalPts = points[0] + points[1] + points[2];
     if (totalPts == 0)
     {
-        nbPhase = 0;
+        return 0;
     }
 
     else if (totalPts == 10)
     {
-        nbPhase = 1;
+       return 1;
     }
 
     else if (totalPts == 30)
     {
-        nbPhase = 2;
+        return 2;
     }
 
     else if (totalPts == 70)
     {
-        nbPhase = 3;
+        return 3;
     }
 }
 
@@ -191,8 +191,8 @@ int tirageNbHasard(int listeTirage[], int *tailleListe, int listeNbTires[], int 
     int nbHasard = listeTirage[rand() % *tailleListe];
     suppElemVal(listeTirage,nbHasard,*tailleListe);
     *tailleListe = *tailleListe - 1;
-    listeNbTires[*tailleListe] = nbHasard;
-    *tailleListeTires++;
+    listeNbTires[*tailleListeTires] = nbHasard;
+    *tailleListeTires = *tailleListeTires + 1;
     return nbHasard;
 }
 

@@ -24,7 +24,7 @@ int main()
     int tailleListe = 90;
     int tab[80] = {0};
 
-    int listeNbTires[90] = {};
+    int listeNbTires[90] = {0};
     int tailleListeTires = 0;
 
     //initialisation de variables utiles
@@ -42,15 +42,16 @@ int main()
 
     else if (dem == 2)
     {
-        int tailleListeTires = lenTab(listeNbTires);
         recupereGrille(carton1,1);
         recupereGrille(carton2,2);
         recupereGrille(carton3,3);
-        recupereGameInfo(listeNbTires, tailleListeTires, points);
+        recupereGameInfo(listeNbTires, points);
+        tailleListeTires = recupereTailleListe(listeNbTires);
 
         recupListeTirage(listeNbTires, tailleListeTires, listeTirage);
+        tailleListe = recupereTailleListe(listeTirage);
         recupNbTires(carton1, carton2, carton3, nbTiresJ1, nbTiresJ2, nbTiresJ3);
-        recupPhase(points, &nbPhases);
+        nbPhases = recupPhase(points);
     }
 
     system("cls");
@@ -58,12 +59,12 @@ int main()
 
     while(nbPhases != 3)
     {
+        printf("%d", nbPhases);
         int nbHasard = tirageNbHasard(listeTirage, &tailleListe, listeNbTires, &tailleListeTires);
         tourLoto(nbHasard,carton1,carton2,carton3,nbTiresJ1,nbTiresJ2,nbTiresJ3);
         checkScores(nbTiresJ1, nbTiresJ2,nbTiresJ3,points,&nbPhases); //check les scores a chaque tour et affiche si quine/double quine/bingo
         if (nbPhases != 3)
         {
-
             affichePoints(points);
             affichCartons(carton1,carton2,carton3);
             printf("Nombre tir%c : %d \n", 130, nbHasard);
@@ -72,7 +73,7 @@ int main()
         saveGrille(carton1,"w+");
         saveGrille(carton2,"a");
         saveGrille(carton3,"a");
-        saveInfoGame(&tab,80, points);
+        saveInfoGame(&listeNbTires,tailleListeTires, points);
         //a regler avec listeTirage
 
         system("cls");
