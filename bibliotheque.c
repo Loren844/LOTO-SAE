@@ -93,23 +93,23 @@ void recupListeTirage(int listeNbTires[], int tailleListeTires, int listeTirage[
 void bingo(int numGagnant)
 {
     system("color 10");
-            sleep(0.7);
+            _sleep(0.7);
             system("color 40");
-            sleep(0.7);
+            _sleep(0.7);
             system("color 50");
-            sleep(0.7);
+            _sleep(0.7);
             system("color 10");
-            sleep(0.7);
+            _sleep(0.7);
             system("color 40");
-            sleep(0.7);
+            _sleep(0.7);
             system("color 50");
-            sleep(0.7);
+            _sleep(0.7);
             system("color 10");
-            sleep(0.7);
+            _sleep(0.7);
             system("color 40");
-            sleep(0.7);
+            _sleep(0.7);
             system("color 00");
-            sleep(1);
+            _sleep(1);
             for(int i = 0; i < 40; i++)
             {
                 if(i%2 == 0 && numGagnant == 1)
@@ -179,7 +179,7 @@ int recupPhase(int points[])
         return 2;
     }
 
-    else if (totalPts == 70)
+    else
     {
         return 3;
     }
@@ -212,7 +212,7 @@ void tourLoto(int nbHasard,Case carton1[][9], Case carton2[][9], Case carton3[][
     checkNbDansCarton(carton3, scoreJ3, nbHasard);
 }
 
-int checkScores(int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1], int points[3], int *nbPhases)
+void checkScores(int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1], int points[3], int *nbPhases)
 {
     //scoreJX = tableau de 3 lignes et 1 colonne, chaque ligne correspond a la ligne du carton
     //premier a 1 ligne a 5 = quine -> points[x] += 10;
@@ -332,3 +332,5 @@ void afficheNbTires(int liste[], int tailleListe)
     }
     printf("%d\n", liste[tailleListe-1]);
 }
+
+

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <windows.h>
 
 #include "menuLoto.h"
 #include "case.h"
@@ -10,6 +11,7 @@
 
 int main()
 {
+    ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
     system("color F0");
     system("mode con cols=1080 lines=1920");
     srand(time(NULL));
@@ -23,7 +25,6 @@ int main()
     //creation/remplissage de la liste de nombres
     int listeTirage[90] = {0};
     int tailleListe = 90;
-    int tab[80] = {0};
 
     int listeNbTires[90] = {0};
     int tailleListeTires = 0;
@@ -69,14 +70,17 @@ int main()
             affichCartons(carton1,carton2,carton3);
             afficheNbTires(listeNbTires, tailleListeTires);
             printf("\n\n\n\n                                                                              Appuyez sur 'Entr%ce' pour continuer...\n",130);
+            saveGrille(carton1,"w+");
+            saveGrille(carton2,"a");
+            saveGrille(carton3,"a");
+            saveInfoGame(&listeNbTires,tailleListeTires, points);
             getchar();
         }
+        //cette save permet de sauvegarder quand il y a bingo
         saveGrille(carton1,"w+");
         saveGrille(carton2,"a");
         saveGrille(carton3,"a");
         saveInfoGame(&listeNbTires,tailleListeTires, points);
-        //a regler avec listeTirage
-
         system("cls");
     }
     int vainqueur = comptePoints(points);
