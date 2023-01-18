@@ -11,6 +11,7 @@
 int main()
 {
     system("color F0");
+    system("mode con cols=1080 lines=1920");
     srand(time(NULL));
     int dem = menuDemarrage(); //affichage du menu de démarrage
 
@@ -59,7 +60,6 @@ int main()
 
     while(nbPhases != 3)
     {
-        printf("%d", nbPhases);
         int nbHasard = tirageNbHasard(listeTirage, &tailleListe, listeNbTires, &tailleListeTires);
         tourLoto(nbHasard,carton1,carton2,carton3,nbTiresJ1,nbTiresJ2,nbTiresJ3);
         checkScores(nbTiresJ1, nbTiresJ2,nbTiresJ3,points,&nbPhases); //check les scores a chaque tour et affiche si quine/double quine/bingo
@@ -67,7 +67,8 @@ int main()
         {
             affichePoints(points);
             affichCartons(carton1,carton2,carton3);
-            printf("Nombre tir%c : %d \n", 130, nbHasard);
+            afficheNbTires(listeNbTires, tailleListeTires);
+            printf("\n\n\n\n                                                                              Appuyez sur 'Entr%ce' pour continuer...\n",130);
             getchar();
         }
         saveGrille(carton1,"w+");

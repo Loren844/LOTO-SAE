@@ -200,6 +200,7 @@ void injecteVal(Case carton[][9], int listeVal[])
 void affichCarton(Case tab[][9], int numJoueur)
 {
     setColor(numJoueur + 2);
+    printf("                                                                                      ");
     for(int i=0;i<37;i++)
     {
         printf("%c",asciihaut);
@@ -207,6 +208,7 @@ void affichCarton(Case tab[][9], int numJoueur)
     printf("\n");
     for(int i=0;i<3;i++)
     {
+        printf("                                                                                      ");
         setColor(numJoueur + 2);
         printf("%c",asciibloc);
         setColor(0);
@@ -241,6 +243,7 @@ void affichCarton(Case tab[][9], int numJoueur)
         printf("\n");
     }
     setColor(numJoueur + 2);
+    printf("                                                                                      ");
     for(int i=0;i<37;i++)
     {
         printf("%c",asciibas);
@@ -251,13 +254,13 @@ void affichCarton(Case tab[][9], int numJoueur)
 
 void affichCartons(Case carton1[][9], Case carton2[][9], Case carton3[][9])
 {
-        printf("Joueur 1 :\n");
+        printf("                                                                                      Joueur 1 :\n");
         affichCarton(carton1, 31);
 
 
-        printf("\nJoueur 2 :\n");
+        printf("\n                                                                                      Joueur 2 :\n");
         affichCarton(carton2, 2);
-        printf("\nJoueur 3 :\n");
+        printf("\n                                                                                      Joueur 3 :\n");
         affichCarton(carton3, 3);
         printf("\n");
 }

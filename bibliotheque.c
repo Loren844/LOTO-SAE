@@ -198,8 +198,8 @@ int tirageNbHasard(int listeTirage[], int *tailleListe, int listeNbTires[], int 
 
 void affichePoints(int points[])
 {
-    printf("               SCORES          \n");
-    printf("      J1 : %d | J2 : %d | J3 : %d\n\n",points[0], points[1], points[2]);
+    printf("                                                                                                     SCORES          \n");
+    printf("                                                                                            J1 : %d | J2 : %d | J3 : %d\n\n",points[0], points[1], points[2]);
 }
 void tourLoto(int nbHasard,Case carton1[][9], Case carton2[][9], Case carton3[][9], int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1])
 {
@@ -226,21 +226,21 @@ int checkScores(int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1], int points
         {
             *nbPhases += 1;
             points[0] += 10;
-            printf("Joueur 1 a fait quine ! Il gagne 10 points.\n\n");
+            printf("                                                                                      Joueur 1 a fait quine ! Il gagne 10 points.\n\n");
         }
 
         else if (scoreJ2[0][0] == 5 || scoreJ2[1][0] == 5 || scoreJ2[2][0] == 5)
         {
             points[1] += 10;
             *nbPhases += 1;
-            printf("Joueur 2 a fait quine ! Il gagne 10 points.\n\n");
+            printf("                                                                                      Joueur 2 a fait quine ! Il gagne 10 points.\n\n");
         }
 
         else if (scoreJ3[0][0] == 5 || scoreJ3[1][0] == 5 || scoreJ3[2][0] == 5)
         {
             points[2] += 10;
             *nbPhases += 1;
-            printf("Joueur 3 a fait quine ! Il gagne 10 points.\n\n");
+            printf("                                                                                      Joueur 3 a fait quine ! Il gagne 10 points.\n\n");
         }
     }
 
@@ -250,21 +250,21 @@ int checkScores(int scoreJ1[][1], int scoreJ2[][1], int scoreJ3[][1], int points
         {
             points[0] += 20;
             *nbPhases += 1;
-            printf("Joueur 1 a fait double quine ! Il gagne 20 points.\n\n");
+            printf("                                                                                      Joueur 1 a fait double quine ! Il gagne 20 points.\n\n");
         }
 
         if ((scoreJ2[0][0] == 5 && scoreJ2[1][0] == 5) || (scoreJ2[0][0] == 5 && scoreJ2[2][0] == 5) || (scoreJ2[1][0] == 5 && scoreJ2[2][0] == 5))
         {
             points[1] += 20;
             *nbPhases += 1;
-            printf("Joueur 2 a fait double quine ! Il gagne 20 points.\n\n");
+            printf("                                                                                      Joueur 2 a fait double quine ! Il gagne 20 points.\n\n");
         }
 
         if ((scoreJ3[0][0] == 5 && scoreJ3[1][0] == 5) || (scoreJ3[0][0] == 5 && scoreJ3[2][0] == 5) || (scoreJ3[1][0] == 5 && scoreJ3[2][0] == 5))
         {
             points[2] += 20;
             *nbPhases += 1;
-            printf("Joueur 3 a fait double quine ! Il gagne 20 points.\n\n");
+            printf("                                                                                      Joueur 3 a fait double quine ! Il gagne 20 points.\n\n");
         }
     }
 
@@ -317,4 +317,18 @@ int comptePoints(int points[3])
     {
         return 3;
     }
+}
+
+void afficheNbTires(int liste[], int tailleListe)
+{
+    printf("                                                                              Nombres Tir%cs : ", 130);
+    for (int i = 0; i < tailleListe-1; i++)
+    {
+        if (i%14 == 0)
+        {
+            printf("\n                                                                              ");
+        }
+        printf("%d, ", liste[i]);
+    }
+    printf("%d\n", liste[tailleListe-1]);
 }
