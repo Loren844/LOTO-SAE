@@ -1,5 +1,5 @@
 # Documentation générale du Loto  
-##Principe général :
+## Principe général :
 Vous allez implémenter un jeu du loto. Voici les règles qui régissent la composition d’un carton de loto : 
 - Une carte contient 9 colonnes et 3 lignes. 
 - Il y a sur la carte 15 numéros différents choisis parmi les nombres de 1 à 90
@@ -16,7 +16,7 @@ Vous allez implémenter un jeu du loto. Voici les règles qui régissent la comp
     - Double quine : Le premier joueur ayant recouvert 2 lignes de l’un de ses cartons gagne la double Quine. Le joueur gagne alors 20 points, 
     - Carton plein : Le premier joueur ayant recouvert l’intégralité de l’un de ses cartons gagne le Carton plein. Le joueur gagne alors 40.
 
-##Travail demandé :
+## Travail demandé :
 - Créer des cartons valides pour pouvoir jouer au loto. Une partie se joue avec 3 joueurs qui ont chacun un carton
 - Faire jouer une partie de loto en mode console. Il ne vous est pas demandé de colorer les cases des cartons, seuls les nombres affichés dans les       cases pourront avoir une couleur différente pour les différencier plus facilement 
 - Trouver comment marquer les différents états d’une case d’un carton : numéro pas encore sorti, numéro sorti et présent sur le carton
